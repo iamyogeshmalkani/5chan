@@ -1,0 +1,9 @@
+.Login{
+    margin: auto;
+    
+    width: 30rem;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+
+}
