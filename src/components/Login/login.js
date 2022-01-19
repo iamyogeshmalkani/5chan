@@ -8,6 +8,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
 
 // import {ReactComponent as ReactLogo} from "../../icons/wave.svg";
 
@@ -27,6 +28,7 @@ export default function Login() {
   return (
 <div className="Login">
   <img src="src/icons/wave_1.svg" alt="backgroud" ></img>
+  
    {/* <ReactLogo/> */}
       
        <TextField id="outlined-basic" label="Email" variant="outlined"  InputProps={{
@@ -57,6 +59,9 @@ export default function Login() {
           ),
         }} />
        <Button variant="contained">Login</Button>
+       <Link href="/signup" underline="none">
+        {"New User Register Here"}
+      </Link>
   </div>
   )
   
