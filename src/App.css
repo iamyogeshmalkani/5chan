@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.Login{
+  margin: auto;
+
+  width: 17rem;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+
+}
+.btn{
+  display:flex;
+  gap:50px;
+}
+.heading{
+  text-align: center;
+}
