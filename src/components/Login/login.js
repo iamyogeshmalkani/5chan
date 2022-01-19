@@ -20,8 +20,8 @@ export default function Login() {
 
   }
   function handlechange(evt){
-    setpassword(...password,evt.target.value);
-    console.log(password);
+    setpassword(evt.target.value);
+    
   
   }
   return (
@@ -43,13 +43,15 @@ export default function Login() {
               <LockIcon />
             </InputAdornment>
           ),
+          
           endAdornment: (
             
-            <InputAdornment position="start">
-              <IconButton onClick={()=>{showpassword()}}>
+            <InputAdornment position="end">
+              {password!="" ? <IconButton onClick={()=>{showpassword()}}>
               <VisibilityIcon />
 
-              </IconButton>
+              </IconButton>:null}
+              
              
             </InputAdornment>
           ),
