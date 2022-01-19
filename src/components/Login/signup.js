@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Link from '@mui/material/Link';
+
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
@@ -8,12 +10,42 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 import Email from "@mui/icons-material/Email";
 import { Password, Person, Visibility } from "@mui/icons-material";
+import LockIcon from '@mui/icons-material/Lock';
+import IconButton from '@mui/material/IconButton';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const Signup = () => {
+  const [type,settype] = useState("password");
+  const [typeconfirm,settypeconfirm] = useState("password");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmpass, setConsfirmPass] = useState("");
+  const [password, setpassword] = useState("");
+  const [confirmpass, setconfirmPass] = useState("");
+
+  function showpassword(str){
+    if(str=="pass"){
+      type=="password" ? settype("text") : settype("password");
+
+    }
+    else{
+      typeconfirm=="password" ? settypeconfirm("text") : settypeconfirm("password");
+
+    }
+    
+
+  }
+  function handlechange(evt,str){
+    if(str==="pass"){
+      setpassword(evt.target.value);
+    }
+    else{
+      setconfirmPass(evt.target.value);
+    }
+   
+    
+  
+  }
+ 
 
   return (
     <>
@@ -27,7 +59,7 @@ const Signup = () => {
           noValidate
           autoComplete="off"
         />
-        <div>
+       
           <TextField
             required
             id="outlined-required"
@@ -43,9 +75,9 @@ const Signup = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </div>
+        
 
-        <div>
+        
           <TextField
             required
             id="outlined-required"
@@ -61,47 +93,59 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
+        
 
-        <div>
-          <TextField
-            required
-            id="outlined-required"
-            label="Password"
-            defaultValue=""
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Visibility />
-                </InputAdornment>
-              ),
-            }}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+        
+        <TextField id="outlined-basic" label="Password" type={type} value={password} variant="outlined" onChange={(e)=>{handlechange(e,"pass")}}  InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <LockIcon />
+            </InputAdornment>
+          ),
+          
+          endAdornment: (
+            
+            <InputAdornment position="end">
+              {password!="" ? <IconButton onClick={()=>{showpassword("pass")}}>
+              <VisibilityIcon />
 
-        <div>
-          <TextField
-            required
-            id="outlined-required"
-            label="Confirm Password"
-            defaultValue=""
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Visibility />
-                </InputAdornment>
-              ),
-            }}
-            value={confirmpass}
-            onChange={(e) => setConsfirmPass(e.target.value)}
-          />
-        </div>
-        <div className="btn">
+              </IconButton>:null}
+              
+             
+            </InputAdornment>
+          ),
+        }} />
+       
+
+       
+       <TextField id="outlined-basic" label="Confirm Password" type={typeconfirm} value={confirmpass} variant="outlined" onChange={(e)=>{handlechange(e,"confirmpass")}}  InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <LockIcon />
+            </InputAdornment>
+          ),
+          
+          endAdornment: (
+            
+            <InputAdornment position="end">
+              {password!="" ? <IconButton onClick={()=>{showpassword("confirmpass")}}>
+              <VisibilityIcon />
+
+              </IconButton>:null}
+              
+             
+            </InputAdornment>
+          ),
+        }} />
+       
+        
           <Button variant="contained">Signup</Button>
-          <Button variant="contained">login</Button>
-        </div>
+          <Link href="/login" underline="none">
+              {"Already have an account"}
+          </Link>
+          
+         
+        
       </div>
     </>
   );
