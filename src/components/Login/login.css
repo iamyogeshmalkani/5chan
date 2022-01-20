@@ -8,3 +8,28 @@
    gap: 20px;
 
 }
+.loginheader{
+display: flex;
+flex-direction: row;
+
+
+
+
+}
+
+.loginheader h1{
+    margin-left: 5%;
+    color: white;
+    padding-bottom: 100px;
+   
+}
+.personicon {
+    color: white;
+    margin-top: 10%;
+    margin-left: 40%;
+    transform: scale(3);
+  }
+  .Loginbutton{
+      color: aquamarine;
+
+  }
